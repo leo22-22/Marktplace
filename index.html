@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esportes Afiliado - Seu Portal para Equipamentos Esportivos de Alta Performance!</title>
+    <meta name="description" content="Descubra uma curadoria exclusiva dos melhores produtos e equipamentos esportivos online. Economize e eleve seu desempenho com Esportes Afiliado.">
+    <meta name="keywords" content="esportes, afiliados, produtos online, ofertas esportivas, promoções, melhores equipamentos, e-commerce, loja virtual, futebol, corrida, fitness, ciclismo, acessórios">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="container header-content">
+            <div class="logo">
+                <h1><a href="#" aria-label="Página Inicial Esportes Afiliado">Esportes Afiliado</a></h1>
+            </div>
+            <nav role="navigation">
+                <button class="menu-toggle" aria-label="Abrir Menu de Navegação">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#carrossel">Ofertas</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Quem Somos</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema Escuro/Claro">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar produtos..." aria-label="Campo de busca de produtos">
+                    <button class="search-icon" aria-label="Botão de busca"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" role="region" aria-label="Seção de Destaque Principal">
+            <div class="container hero-content">
+                <h2 class="animate-fade-in-up">Sua Jornada Esportiva Começa Aqui!</h2>
+                <p class="animate-fade-in-up delay-1">As melhores ofertas em equipamentos e acessórios para você superar limites.</p>
+                <a href="#produtos" class="btn animate-fade-in-up delay-2">Encontre Sua Próxima Conquista!</a>
+            </div>
+        </section>
+
+        <section id="carrossel" role="region" aria-label="Carrossel de Ofertas da Semana">
+            <div class="container">
+                <h3>Ofertas Relâmpago da Semana</h3>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <article class="carousel-item">
+                            <img src="./img/download (3).jpg" alt="Fone de Ouvido Esportivo Bluetooth" loading="lazy">
+                            <div class="carousel-caption">
+                                <span class="badge sale-badge">🎉 30% OFF!</span>
+                                <h4>Fone de Ouvido PowerBeats: Som e Liberdade!</h4>
+                                <p>Experimente a liberdade sem fios e a qualidade de som perfeita para seus treinos.</p>
+                                <a href="LINK_DO_SEU_AFILIADO_OFERTA_1" target="_blank" class="btn btn-product" rel="nofollow noopener">Aproveitar Oferta!</a>
+                            </div>
+                        </article>
+                        <article class="carousel-item">
+                            <img src="./img/download (4).jpg" alt="Relógio Esportivo Smartwatch" loading="lazy">
+                            <div class="carousel-caption">
+                                <span class="badge limited-badge">🔥 Últimas Unidades!</span>
+                                <h4>Smartwatch UltraFit: Monitore seu Desempenho!</h4>
+                                <p>Ideal para corrida, natação e controle de saúde. Não perca essa chance!</p>
+                                <a href="LINK_DO_SEU_AFILIADO_OFERTA_2" target="_blank" class="btn btn-product" rel="nofollow noopener">Comprar Agora</a>
+                            </div>
+                        </article>
+                        <article class="carousel-item">
+                            <img src="./img/download (5).jpg" alt="Bola de Futebol Profissional" loading="lazy">
+                            <div class="carousel-caption">
+                                <span class="badge new-badge">✨ Novidade!</span>
+                                <h4>Bola de Futebol Pro League: Domine o Campo!</h4>
+                                <p>A bola oficial para jogos de alta performance. Garanta a sua e marque um golaço!</p>
+                                <a href="LINK_DO_SEU_AFILIADO_OFERTA_3" target="_blank" class="btn btn-product" rel="nofollow noopener">Ver Mais</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="produtos" role="region" aria-label="Nossos Produtos em Destaque">
+            <div class="container">
+                <h3>Produtos Selecionados para Você</h3>
+                <div class="product-filters">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="corrida">Corrida</button>
+                    <button class="filter-btn" data-category="futebol">Futebol</button>
+                    <button class="filter-btn" data-category="fitness">Fitness</button>
+                    <button class="filter-btn" data-category="acessorios">Acessórios</button>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card" itemscope itemtype="http://schema.org/Product" data-category="corrida">
+                        <img itemprop="image" src="./img/download (3).jpg" alt="Tênis de Corrida UltraBoost" loading="lazy">
+                        <h4 itemprop="name">Tênis de Corrida UltraBoost 2000</h4>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (120)
+                        </div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <p class="price-old">R$ <span class="strikethrough">499,90</span></p>
+                            <p class="price">R$ <span itemprop="price">349,90</span></p>
+                            <meta itemprop="priceCurrency" content="BRL" />
+                        </div>
+                        <p itemprop="description" class="description">Leveza e amortecimento máximo para suas corridas. Sinta a diferença a cada passo!</p>
+                        <a href="LINK_DO_SEU_AFILIADO_PRODUTO_1" target="_blank" class="btn btn-product" rel="nofollow noopener" itemprop="url">Ver na Loja</a>
+                    </article>
+
+                    <article class="product-card" itemscope itemtype="http://schema.org/Product" data-category="futebol">
+                        <img itemprop="image" src="./img/download (4).jpg" alt="Chuteira de Futebol Agility Pro" loading="lazy">
+                        <h4 itemprop="name">Chuteira de Futebol Agility Pro</h4>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (85)
+                        </div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <p class="price">R$ <span itemprop="price">289,00</span></p>
+                            <meta itemprop="priceCurrency" content="BRL" />
+                        </div>
+                        <p itemprop="description" class="description">Controle total e explosão nos movimentos. A chuteira que seus pés pedem!</p>
+                        <a href="LINK_DO_SEU_AFILIADO_PRODUTO_2" target="_blank" class="btn btn-product" rel="nofollow noopener" itemprop="url">Ver na Loja</a>
+                    </article>
+
+                    <article class="product-card" itemscope itemtype="http://schema.org/Product" data-category="fitness">
+                        <img itemprop="image" src="./img/download (5).jpg" alt="Kit de Halteres Ajustáveis" loading="lazy">
+                        <h4 itemprop="name">Kit de Halteres Ajustáveis SmartFit</h4>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (210)
+                        </div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <p class="price-old">R$ <span class="strikethrough">799,90</span></p>
+                            <p class="price">R$ <span itemprop="price">599,90</span></p>
+                            <meta itemprop="priceCurrency" content="BRL" />
+                        </div>
+                        <p itemprop="description" class="description">Perfeito para treinos em casa. Economize espaço e tenha pesos variados ao seu alcance.</p>
+                        <a href="LINK_DO_SEU_AFILIADO_PRODUTO_3" target="_blank" class="btn btn-product" rel="nofollow noopener" itemprop="url">Ver na Loja</a>
+                    </article>
+
+                    <article class="product-card" itemscope itemtype="http://schema.org/Product" data-category="acessorios">
+                        <img itemprop="image" src="./img/download (6).jpg" alt="Garrafa Térmica Esportiva" loading="lazy">
+                        <h4 itemprop="name">Garrafa Térmica Hydrate Pro</h4>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (150)
+                        </div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <p class="price">R$ <span itemprop="price">89,90</span></p>
+                            <meta itemprop="priceCurrency" content="BRL" />
+                        </div>
+                        <p itemprop="description" class="description">Mantenha sua bebida gelada por horas. Hidratação garantida em qualquer treino.</p>
+                        <a href="LINK_DO_SEU_AFILIADO_PRODUTO_4" target="_blank" class="btn btn-product" rel="nofollow noopener" itemprop="url">Ver na Loja</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="bg-gradient-reverse" role="region" aria-label="Seção Sobre Nós">
+            <div class="container">
+                <h3>Quem Somos na Esportes Afiliado</h3>
+                <div class="about-content">
+                    <p>Na **Esportes Afiliado**, nossa paixão é conectar você aos melhores equipamentos e acessórios esportivos do mercado. Entendemos a dedicação e o esforço de cada atleta, seja você um profissional ou um entusiasta. Por isso, nossa equipe especializada realiza uma curadoria rigorosa, buscando as ofertas mais vantajosas e os produtos de maior qualidade, para que você possa focar no que realmente importa: **superar seus limites!**</p>
+                    <p>Acreditamos que o acesso a equipamentos de ponta não deve ser um luxo. Nosso compromisso é democratizar o acesso ao melhor do esporte, garantindo que você encontre tudo o que precisa para sua jornada fitness, com a segurança e a economia que você merece.</p>
+                    <div class="about-features">
+                        <div><i class="fas fa-check-circle"></i> Curadoria Especializada</div>
+                        <div><i class="fas fa-percent"></i> Preços Exclusivos</div>
+                        <div><i class="fas fa-shield-alt"></i> Compra Segura</div>
+                        <div><i class="fas fa-heart-pulse"></i> Paixão por Esporte</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" role="region" aria-label="Seção de Depoimentos de Clientes">
+            <div class="container">
+                <h3>O Que Nossos Atletas Dizem</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <img src="./img/download.jpg" alt="Foto de Perfil de João Paulo">
+                        <p>"Simplesmente o melhor site para encontrar equipamentos esportivos! As ofertas são reais e a seleção é de altíssima qualidade. Meu novo tênis de corrida veio com um super desconto!"</p>
+                        <h4>Maria Vitória, Entusiasta Fitness</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="./img/download (1).jpg" alt="Foto de Perfil de Maria Vitória">
+                        <p>"Eu estava procurando um smartwatch fitness e encontrei o modelo que queria pela metade do preço! A Esportes Afiliado é minha nova referência para compras inteligentes."</p>
+                        <h4>João Paulo, Corredor Amador</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="./img/download (2).jpg" alt="Foto de Perfil de Rafael Nunes">
+                        <p>"Excelente curadoria! Sempre encontro produtos que realmente valem a pena, desde acessórios básicos até itens mais profissionais. Recomendo para todos os meus amigos atletas."</p>
+                        <h4>Rafaela Nunes, Ciclista Profissional</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Esportes Afiliado</h4>
+                    <p>Seu portal confiável para as melhores ofertas e equipamentos esportivos.</p>
+                    <p>Email: <a href="mailto:EsportesAfiliado@gmail.com">EsportesAfiliado@gmail.com</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/5518981113802" target="_blank">(18) 98111-3802</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação Rápida</h4>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#carrossel">Ofertas da Semana</a></li>
+                        <li><a href="#produtos">Produtos em Destaque</a></li>
+                        <li><a href="#sobre">Quem Somos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Conecte-se Conosco</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Nossa página no Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="Nosso perfil no Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Nosso canal no TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank" aria-label="Nosso perfil no Twitter"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                    <div class="newsletter-signup">
+                        <h5>Receba as Melhores Ofertas!</h5>
+                        <form>
+                            <input type="email" placeholder="Seu e-mail" aria-label="Digite seu e-mail para receber ofertas" required>
+                            <button type="submit" class="btn btn-subscribe">Assinar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <p class="disclaimer">&copy; 2025 EsportesAfiliado. Todos os direitos reservados. Como afiliado, podemos receber comissão por compras qualificadas.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
