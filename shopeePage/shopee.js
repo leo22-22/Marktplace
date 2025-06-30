@@ -533,4 +533,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializa o carrinho ao carregar a página
     updateCartCount();
     updateCartTotal(); // Adicionado para exibir o total inicial caso já haja itens no carrinho
+    
 });

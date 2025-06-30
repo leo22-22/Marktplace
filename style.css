@@ -378,11 +378,11 @@ header nav ul li a:hover {
 .btn-text-link {
     background: none;
     color: var(--primary-color);
-    padding: 0;
+    padding: 10px;
     box-shadow: none;
     text-transform: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 2.05rem;
     position: relative;
 }
 .btn-text-link:hover {
@@ -1477,6 +1477,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+    
     #hero h2 {
         font-size: clamp(2.5rem, 6vw, 3.5rem);
     }
