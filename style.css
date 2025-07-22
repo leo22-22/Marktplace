@@ -234,10 +234,25 @@ header nav ul li a:hover {
     display: none;
     background: none;
     border: none;
-    color: var(--text-light);
-    font-size: 2.2rem;
+    color: var(--text-color); /* Usa a variável de cor do texto do tema */
     cursor: pointer;
-    margin-left: 20px;
+    padding: 10px;
+    font-size: 1.8rem; /* Tamanho do ícone */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--primary-color); /* Cor ao passar o mouse */
+}
+
+/* Esconde a lista de navegação por padrão (para desktop) */
+.nav-menu { /* O UL da sua navegação */
+    display: flex; /* Mantém como flex para layout de desktop */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* Adicione quaisquer estilos padrão para o seu menu de desktop aqui */
 }
 
 #hero {
@@ -1345,90 +1360,103 @@ footer {
     text-decoration: underline;
 }
 
-/* ========================================= */
-/* Media Query: Tablet e Celular Grande   */
-/* (max-width: 992px)                */
-/* ========================================= */
-@media (max-width: 992px) {
-    header .header-content {
+@media (max-width: 1000px) {
+    .header-content { 
         flex-wrap: wrap;
-        justify-content: space-between; /* Ajuste para melhor distribuição */
+        justify-content: space-between;
         align-items: center;
         padding: 0 15px;
     }
 
-    .logo {
+    .logo { 
         flex-basis: auto;
         text-align: left;
         margin-bottom: 0;
         order: 1;
     }
 
-    .header-actions {
+    .header-actions { 
         order: 2;
         margin-left: auto;
         margin-right: 15px;
         gap: 15px;
     }
 
-    .menu-toggle {
+    .menu-toggle { 
         display: block; 
-        margin-left: 0;
+        margin-left: 0; 
         font-size: 2rem;
+        order: 3; 
     }
 
-    header nav {
+    header nav { 
         order: 4;
         width: 100%;
-        margin-top: 15px; 
         position: absolute; 
-        top: 100%; 
+        top: 80px; 
         left: 0;
         z-index: 99;
     }
 
-    .nav-menu {
+    .nav-menu { 
         flex-direction: column;
         width: 100%;
-        position: absolute; 
-        top: 0; 
-        left: 0;
-        background-color: var(--bg-dark);
-        box-shadow: 0 8px 20px var(--shadow-medium);
+        background-color: var(--bg-dark); 
+        box-shadow: 0 8px 20px var(--shadow-medium); 
         padding: 0; 
         border-radius: 0 0 12px 12px;
         max-height: 0; 
-        overflow: hidden;
-        transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden; 
+        
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s;
+        
         border-top: 1px solid rgba(255,255,255,0.1);
-        z-index: 998; 
+        z-index: 998;
         display: flex; 
     }
 
     .nav-menu.active {
-        max-height: 400px; 
-        padding: 20px 0; 
-        overflow-y: auto;
+        max-height: 400px;
+        padding: 20px 0;
+        overflow-y: auto; 
     }
 
-    .nav-menu li {
+    .menu-toggle i.fa-bars {
+        display: inline-block;
+    }
+
+    .menu-toggle i.fa-times { 
+        display: none; 
+    }
+
+    .menu-toggle.active i.fa-bars {
+        display: none;
+    }
+
+    .menu-toggle.active i.fa-times { 
+        display: inline-block;
+    }
+
+    .nav-menu li { 
         margin: 0;
         text-align: center;
         width: 100%;
     }
 
-    .nav-menu li a {
+    .nav-menu li a { 
         display: block;
         padding: 12px 20px;
         font-size: 1.1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .nav-menu li:last-child a {
+    .nav-menu li:last-child a { 
         border-bottom: none;
     }
 
-    .nav-menu li a::after {
-        display: none;
+    .nav-menu li a::after { 
+        display: none; 
     }
 
     .search-box input {
@@ -1507,34 +1535,32 @@ footer {
 
 
 @media (max-width: 768px) {
-    .main-header {
-        padding: 10px 0; 
+    header { 
+        padding: 10px 0;
+        position: relative; 
     }
 
-    .header-content {
-        padding: 0 10px; 
+    .header-content { 
+        padding: 0 10px;
     }
 
     .logo h1 a {
         font-size: 1.5rem;
     }
 
-    .logo h1 a span {
-        font-size: 1.2rem; 
-    }
     .menu-toggle {
-        font-size: 1.6rem; 
+        font-size: 1.6rem;
     }
 
-    .header-actions {
-        gap: 10px; 
+    .header-actions { 
+        gap: 10px;
     }
 
-    .nav-menu.active {
+    .nav-menu.active { 
         max-height: 350px;
     }
     .nav-menu li a {
-        padding: 10px 15px; 
+        padding: 10px 15px;
     }
 
     #hero h2 {
@@ -1542,6 +1568,7 @@ footer {
     }
     #hero p {
         font-size: clamp(1rem, 2vw, 1.2rem);
+        margin-bottom: 30px;
     }
 
     #carrossel h3, #produtos h3, #sobre h3, #depoimentos h3, #categorias h3, #blog h3, #faq h3 {
@@ -1595,27 +1622,27 @@ footer {
 
 
 @media (max-width: 576px) {
-    header .header-content {
+    .header-content { 
         flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    .logo {
+    .logo { 
         text-align: left;
     }
 
-    .header-actions {
+    .header-actions { 
         order: 2;
         margin-left: auto;
     }
 
-    .menu-toggle {
+    .menu-toggle { 
         order: 3;
         margin-left: 10px;
         font-size: 1.8rem;
     }
 
-    .nav-menu.active {
+    .nav-menu.active { 
         max-height: 300px;
     }
 
@@ -1689,7 +1716,6 @@ footer {
         width: 100%;
     }
 }
-
 .shopping-cart-overlay {
     position: fixed;
     top: 0;

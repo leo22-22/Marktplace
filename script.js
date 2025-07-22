@@ -16,14 +16,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 // Fecha o menu de navegação se estiver aberto (para responsividade)
                 const navMenu = select('.nav-menu');
+                const menuToggle = select('.menu-toggle'); // Pega o menuToggle aqui também
                 if (navMenu && navMenu.classList.contains('active')) {
                     setTimeout(() => {
                         navMenu.classList.remove('active');
-                        // Ajusta atributos ARIA para acessibilidade
-                        const menuToggle = select('.menu-toggle');
+                        // Remove a classe 'active' do menuToggle também para mudar o ícone
                         if (menuToggle) {
+                            menuToggle.classList.remove('active');
                             menuToggle.setAttribute('aria-expanded', 'false');
                             navMenu.setAttribute('aria-hidden', 'true');
+                            // Troca o ícone de volta para barras
+                            const icon = menuToggle.querySelector('i');
+                            if (icon) {
+                                icon.classList.replace('fa-chevron-down', 'fa-bars'); // Troca para a seta para baixo
+                                icon.classList.replace('fa-times', 'fa-bars'); // Caso você use um X
+                            }
                             menuToggle.focus(); // Retorna o foco para o botão de toggle
                         }
                     }, 300); // Pequeno atraso para a animação do scroll
@@ -33,6 +40,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const menuLinks = document.querySelectorAll('.nav-menu a'); 
+        const barsIcon = menuToggle.querySelector('.fa-bars');
+        const timesIcon = document.createElement('i');
+        timesIcon.classList.add('fas', 'fa-times');
+        timesIcon.setAttribute('aria-hidden', 'true');
+        timesIcon.style.display = 'none'; 
+        menuToggle.appendChild(timesIcon); 
+    
+        const toggleMenu = () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('active');
+    
+            if (navMenu.classList.contains('active')) {
+                barsIcon.style.display = 'none';
+                timesIcon.style.display = 'block';
+            } else {
+                barsIcon.style.display = 'block';
+                timesIcon.style.display = 'none';
+            }
+        };
+    
+        menuToggle.addEventListener('click', toggleMenu);
+    
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu(); 
+                }
+            });
+        });
+    
+        document.addEventListener('click', (event) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                toggleMenu(); 
+            }
+        });
+    
+        let isMobile = window.matchMedia('(max-width: 1000px)').matches;
+    
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.matchMedia('(max-width: 992px)').matches;
+    
+            if (isMobile && !newIsMobile && navMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+            isMobile = newIsMobile;
+        });
+    });
+
 
     // 3. Tema Claro/Escuro (Light/Dark Mode)
     const themeToggleBtn = select('#theme-toggle');
@@ -482,8 +543,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, {
-            threshold: 0.2, // Quando 20% do elemento estiver visível
-            rootMargin: '0px 0px -50px 0px' // Começa a observar um pouco antes
+            threshold: 0.2, 
+            rootMargin: '0px 0px -50px 0px' 
         });
         animateElements.forEach(element => {
             observer.observe(element);
@@ -514,7 +575,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateCartCount = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartCountSpan.textContent = totalItems;
-        // Oculta/mostra o contador se houver itens
         cartCountSpan.style.display = totalItems > 0 ? 'flex' : 'none';
     };
 
@@ -524,7 +584,6 @@ document.addEventListener('DOMContentLoaded', function() {
         checkoutBtn.disabled = cart.length === 0;
     };
 
-    // --- FUNÇÃO ADICIONAR AO CARRINHO (Unificada para Cards e Modal) ---
     const handleAddToCart = (productId, productName, productPrice, productImage) => {
         const existingItem = cart.find(item => item.id === productId);
 
@@ -544,11 +603,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartTotal();
         renderCartItems();
 
-        // Feedback visual para o usuário
-        // alert(`"${productName}" adicionado ao carrinho!`); // Geralmente é melhor usar um toast ou notificação menos intrusiva
-
-        // Se você estiver usando o modal para detalhes do produto, pode fechá-lo aqui:
-        // Certifique-se de que 'productModal' e 'closeModal' estejam definidos no seu escopo
         if (typeof productModal !== 'undefined' && productModal && productModal.classList.contains('active')) {
             closeModal();
         }
@@ -580,18 +634,13 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             cartItemsContainer.appendChild(cartItemDiv);
         });
-        // Não é mais necessário chamar addCartItemEventListeners() aqui
-        updateCartTotal(); // Atualiza o total após re-renderizar
+        updateCartTotal(); 
     };
 
-    // --- Delegação de Eventos para os Controles do Carrinho ---
-    // Anexa um único listener ao contêiner pai que sempre existe.
-    // Isso é mais eficiente e garante que os eventos funcionem para elementos
-    // adicionados dinamicamente.
     const setupCartItemDelegatedListeners = () => {
         cartItemsContainer.addEventListener('click', (event) => {
             const target = event.target;
-            const productId = parseInt(target.dataset.productId); // Obtém o ID do produto do botão
+            const productId = parseInt(target.dataset.productId); 
 
             if (target.classList.contains('decrease-btn')) {
                 const itemIndex = cart.findIndex(item => item.id === productId);
@@ -599,7 +648,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (cart[itemIndex].quantity > 1) {
                         cart[itemIndex].quantity--;
                     } else {
-                        cart.splice(itemIndex, 1); // Remove se a quantidade chega a 1 e diminui
+                        cart.splice(itemIndex, 1); 
                     }
                     saveCart();
                     updateCartCount();
@@ -685,8 +734,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Inicialização do Carrinho ao Carregar a Página ---
-    setupCartItemDelegatedListeners(); // **CHAMADA ÚNICA** para configurar os listeners delegados
+    setupCartItemDelegatedListeners(); 
     updateCartCount();
     updateCartTotal();
-    renderCartItems(); // Renderiza o carrinho na inicialização para exibir itens salvos
+    renderCartItems();
+    
+    // --- Checkout (Simulação) ---
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio. Adicione produtos antes de prosseguir para o checkout.');
+            } else {
+                alert('Checkout realizado com sucesso! Obrigado pela sua compra!');
+                cart = []; 
+                saveCart();
+                updateCartCount();
+                renderCartItems(); 
+            }
+        });
+    }
 });
